@@ -1,0 +1,40 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include "admin.h"
+#include "cliente.h"
+#define IVA 0.23
+
+
+void menu_inicial() {
+	int opcao, opcao_cliente, i;
+	int indice = 0;
+	printf("************************ Bem vindo ao nosso parque de estacionamento *******************************\n");
+	system("pause");
+	system("cls");
+	printf("1-Administrador\n" "2-Cliente\n");
+	scanf("%d", &opcao);
+	if (opcao == 1) {
+		indice = menu_administrador(indice);
+	}
+	else {
+		system("cls");
+		printf("1-Cliente mensal\n" "2-Cliente pontual\n");
+		scanf("%d", &opcao_cliente);
+		if (opcao_cliente == 1) {
+			indice = menu_cliente_mensal(indice);
+		}
+		else {
+			indice = menu_cliente_pontual(indice);
+		}
+	}
+}
+
+
+int main() {
+	menu_inicial();
+	return 0;
+}
+
